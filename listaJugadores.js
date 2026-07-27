@@ -8,19 +8,14 @@ document.getElementById("filtro").addEventListener("change", e => {
 });
 
 // ───────── CATEGORÍA ─────────
+// ───────── CATEGORÍA ─────────
 function obtenerCategoria(fechaNacimiento) {
 
-    const hoy = new Date();
+    const anioActual = new Date().getFullYear();
     const nacimiento = new Date(fechaNacimiento);
-    console.log("Fecha guardada:", fechaNacimiento);
-console.log("Fecha convertida:", nacimiento);
+    const anioNacimiento = nacimiento.getFullYear();
 
-    let edad = hoy.getFullYear() - nacimiento.getFullYear();
-
-    const mes = hoy.getMonth() - nacimiento.getMonth();
-    if (mes < 0 || (mes === 0 && hoy.getDate() < nacimiento.getDate())) {
-        edad--;
-    }
+    const edad = anioActual - anioNacimiento;
 
     if (edad >= 5 && edad <= 7) return "U7";
     if (edad >= 8 && edad <= 9) return "U9";
